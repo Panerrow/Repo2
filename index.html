@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Olio by Giulio - Listino Prezzi</title>
@@ -7,7 +7,21 @@
       background-color: darkolivegreen;
       color: white;
     }
+    .hidden {
+      display: none;
+    }
   </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var video = document.querySelector('video');
+      var priceList = document.querySelector('ul');
+
+      video.addEventListener('ended', function() {
+        video.classList.add('hidden');
+        priceList.classList.remove('hidden');
+      });
+    });
+  </script>
 </head>
 <body>
   <!-- Video Intro -->
@@ -16,12 +30,10 @@
     Your browser does not support the video tag.
   </video>
 
-
   <!-- Price List -->
-  <h1>Listino Prezzi</h1>
-  <ul>
-    <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€\L</li>
-    <li>Olio Mosto di Oliva taggiasca: 13€\L</li>
+  <ul class="hidden">
+    <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
+    <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
     <!-- Add more items as needed -->
   </ul>
 </body>
