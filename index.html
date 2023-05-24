@@ -11,7 +11,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start; /* Align items at the top */
       height: 100vh;
       font-family: 'Arial', sans-serif; /* Font style */
     }
@@ -39,33 +39,26 @@
     .price-list {
       padding: 20px;
       font-size: 20px;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      text-align: left;
+      margin-top: 50px; /* Add top margin to move below the title */
     }
 
     .title {
       font-size: 30px;
       font-weight: bold;
-      margin-bottom: 20px;
+      text-align: center;
+      margin-top: 100px; /* Adjust the margin to position in the middle */
     }
 
     .show {
       display: block;
     }
 
-    .text-container {
-      text-align: left;
-      margin-left: 30px;
-      display: none; /* Hide the bullet points initially */
-    }
-
     ul {
       list-style: none;
       padding: 0;
-      margin: 0;
+      text-align: left;
+      margin-left: 30px;
     }
 
     ul li:before {
@@ -77,12 +70,10 @@
     window.addEventListener('DOMContentLoaded', function() {
       var video = document.querySelector('video');
       var priceList = document.querySelector('.price-list');
-      var bulletPoints = document.querySelector('.text-container');
 
       video.addEventListener('ended', function() {
         video.classList.add('hidden');
         priceList.classList.add('show');
-        bulletPoints.style.display = 'block'; // Show the bullet points
       });
 
       // Add event listener to skip the video
@@ -91,7 +82,6 @@
           video.pause();
           video.classList.add('hidden');
           priceList.classList.add('show');
-          bulletPoints.style.display = 'block'; // Show the bullet points
         }
       });
     });
@@ -109,10 +99,6 @@
   <!-- Price List -->
   <div class="price-list hidden">
     <h1 class="title">Listino Prezzi</h1>
-  </div>
-
-  <!-- Bullet Points -->
-  <div class="text-container">
     <ul>
       <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
       <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
