@@ -51,6 +51,18 @@
     .show {
       display: block;
     }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin-left: 30px;
+    }
+
+    ul li:before {
+      content: "•";
+      margin-right: 10px;
+    }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
@@ -60,6 +72,15 @@
       video.addEventListener('ended', function() {
         video.classList.add('hidden');
         priceList.classList.add('show');
+      });
+
+      // Add event listener to skip the video
+      document.addEventListener('click', function() {
+        if (!video.classList.contains('hidden')) {
+          video.pause();
+          video.classList.add('hidden');
+          priceList.classList.add('show');
+        }
       });
     });
   </script>
