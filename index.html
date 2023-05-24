@@ -4,8 +4,8 @@
   <title>Olio by Giulio - Listino Prezzi</title>
   <style>
     body {
-      background-color: #F7F4E9; /* Light beige background */
-      color: #1F271B; /* Dark green text color */
+      background: linear-gradient(135deg, #BF996B, #556B2F); /* Olive-inspired gradient background */
+      color: #F7F4E9; /* Light text color */
       margin: 0;
       padding: 0;
       display: flex;
@@ -63,25 +63,15 @@
       content: "•";
       margin-right: 10px;
     }
-    
-    .logo {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 999;
-    }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
       var video = document.querySelector('video');
       var priceList = document.querySelector('.price-list');
-      var logo = document.querySelector('.logo');
 
       video.addEventListener('ended', function() {
         video.classList.add('hidden');
         priceList.classList.add('show');
-        logo.classList.remove('hidden');
       });
 
       // Add event listener to skip the video
@@ -90,18 +80,12 @@
           video.pause();
           video.classList.add('hidden');
           priceList.classList.add('show');
-          logo.classList.remove('hidden');
         }
       });
     });
   </script>
 </head>
 <body>
-  <!-- Logo -->
-  <div class="logo">
-    <img src="OBG LOGO.jpg" alt="Logo">
-  </div>
-
   <!-- Video Intro -->
   <div class="video-container">
     <video autoplay muted playsinline>
