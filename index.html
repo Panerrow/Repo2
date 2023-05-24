@@ -72,8 +72,10 @@
     });
     
     video.addEventListener('click', () => {
-      video.pause();
-      textContainer.style.display = 'block';
+      if (!video.paused && !video.ended) {
+        video.pause();
+        textContainer.style.display = 'block';
+      }
     });
   </script>
 </body>
