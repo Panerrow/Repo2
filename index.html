@@ -4,10 +4,16 @@
   <title>Olio by Giulio - Listino Prezzi</title>
   <style>
     body {
-      background-color: darkolivegreen;
-      color: white;
+      background-color: #F7F4E9; /* Light beige background */
+      color: #1F271B; /* Dark green text color */
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif; /* Font style */
     }
 
     .video-container {
@@ -15,8 +21,9 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
+      height: 100%;
       overflow: hidden;
+      z-index: -1;
     }
 
     .video-container video {
@@ -30,9 +37,15 @@
     }
 
     .price-list {
-      display: none;
       padding: 20px;
       font-size: 20px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
     .show {
@@ -61,8 +74,8 @@
   </div>
 
   <!-- Price List -->
-  <div class="price-list">
-    <h1>Listino Prezzi</h1>
+  <div class="price-list hidden">
+    <h1 class="title">Listino Prezzi</h1>
     <ul>
       <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
       <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
