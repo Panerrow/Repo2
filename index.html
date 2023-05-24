@@ -11,7 +11,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       height: 100vh;
       font-family: 'Arial', sans-serif; /* Font style */
     }
@@ -39,7 +39,7 @@
     .price-list {
       padding: 20px;
       font-size: 20px;
-      text-align: center;
+      text-align: left;
       display: none;
       position: absolute;
       top: 50%; /* Adjust as needed */
@@ -105,11 +105,13 @@
   <!-- Price List -->
   <div class="price-list hidden">
     <h1 class="title">Listino Prezzi</h1>
-    <ul>
-      <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
-      <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
-      <!-- Add more items as needed -->
-    </ul>
+    <div class="text-container">
+      <ul>
+        <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
+        <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
+        <!-- Add more items as needed -->
+      </ul>
+    </div>
   </div>
 </body>
 </html>
