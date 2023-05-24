@@ -4,77 +4,110 @@
   <title>Olio by Giulio - Listino Prezzi</title>
   <style>
     body {
-      background-color: darkolivegreen;
-      color: white;
+      background-color: #F7F4E9; /* Light beige background */
+      color: #1F271B; /* Dark green text color */
       margin: 0;
       padding: 0;
-    }
-    
-    .video-container {
-      position: relative;
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       height: 100vh;
-      overflow: hidden;
+      font-family: 'Arial', sans-serif; /* Font style */
     }
-    
-    .video {
-      position: absolute;
+
+    .video-container {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
-    
-    .text-container {
+
+    .hidden {
+      display: none;
+    }
+
+    .price-list {
+      padding: 20px;
+      font-size: 20px;
+      text-align: center;
+      display: none;
       position: absolute;
       top: 20px;
       left: 20px;
-      text-align: left;
-      display: none;
     }
-    
-    .text {
-      font-size: 24px;
+
+    .title {
+      font-size: 30px;
       font-weight: bold;
+      margin-bottom: 20px;
     }
-    
-    video:focus {
-      outline: none;
+
+    .show {
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin-left: 30px;
+    }
+
+    ul li:before {
+      content: "•";
+      margin-right: 10px;
     }
   </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var video = document.querySelector('video');
+      var priceList = document.querySelector('.price-list');
+
+      video.addEventListener('ended', function() {
+        video.classList.add('hidden');
+        priceList.classList.add('show');
+        document.body.style.backgroundColor = "#F7F4E9"; // Set background color after video ends
+      });
+
+      // Add event listener to skip the video
+      document.addEventListener('click', function() {
+        if (!video.classList.contains('hidden')) {
+          video.pause();
+          video.classList.add('hidden');
+          priceList.classList.add('show');
+          document.body.style.backgroundColor = "#F7F4E9"; // Set background color if video is skipped
+        }
+      });
+    });
+  </script>
 </head>
 <body>
+  <!-- Video Intro -->
   <div class="video-container">
-    <video autoplay muted playsinline class="video" id="intro-video">
+    <video autoplay muted playsinline>
       <source src="Olives2.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    
-    <div class="text-container">
-      <h1 class="text">Listino Prezzi</h1>
-      <ul>
-        <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
-        <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
-        <!-- Add more items as needed -->
-      </ul>
-    </div>
   </div>
 
-  <script>
-    const video = document.getElementById('intro-video');
-    const textContainer = document.querySelector('.text-container');
-    
-    video.addEventListener('ended', () => {
-      textContainer.style.display = 'block';
-    });
-    
-    video.addEventListener('click', () => {
-      if (!video.paused && !video.ended) {
-        video.pause();
-        textContainer.style.display = 'block';
-      }
-    });
-  </script>
+  <!-- Price List -->
+  <div class="price-list hidden">
+    <h1 class="title">Listino Prezzi</h1>
+    <ul>
+      <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
+      <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
+      <!-- Add more items as needed -->
+    </ul>
+  </div>
 </body>
 </html>
