@@ -4,8 +4,8 @@
   <title>Olio by Giulio - Listino Prezzi</title>
   <style>
     body {
-      background: linear-gradient(to right, #BF996B, #556B2F); /* Olive-inspired gradient background starting from left */
-      color: #F7F4E9; /* Light text color */
+      background-color: #F7F4E9;
+      color: #1F271B;
       margin: 0;
       padding: 0;
       display: flex;
@@ -13,22 +13,8 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Arial', sans-serif; /* Font style */
-    }
-
-    .logo-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    .logo {
-      max-width: 200px; /* Adjust the max width as needed */
+      font-family: 'Arial', sans-serif;
+      background-image: linear-gradient(to right, #4B783B, #2B4E22); /* Gradient background */
     }
 
     .video-container {
@@ -78,6 +64,12 @@
       content: "•";
       margin-right: 10px;
     }
+
+    .logo {
+      width: 200px; /* Adjust the width as desired */
+      height: auto; /* Maintain aspect ratio */
+      margin-top: 50px; /* Add margin to position the logo */
+    }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
@@ -89,7 +81,6 @@
         priceList.classList.add('show');
       });
 
-      // Add event listener to skip the video
       document.addEventListener('click', function() {
         if (!video.classList.contains('hidden')) {
           video.pause();
@@ -101,12 +92,6 @@
   </script>
 </head>
 <body>
-  <!-- Logo -->
-  <div class="logo-container">
-    <img class="logo" src="OBG LOGO.jpg" alt="Logo">
-  </div>
-
-  <!-- Video Intro -->
   <div class="video-container">
     <video autoplay muted playsinline>
       <source src="Olives2.mp4" type="video/mp4">
@@ -114,9 +99,14 @@
     </video>
   </div>
 
-  <!-- Price List -->
+  <img class="logo" src="OBG_LOGO.jpg" alt="Logo">
+
   <div class="price-list hidden">
     <h1 class="title">Listino Prezzi</h1>
     <ul>
       <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
-      <li>Olio Mosto di Oliva taggiasca: 13
+      <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
+    </ul>
+  </div>
+</body>
+</html>
