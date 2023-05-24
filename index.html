@@ -8,31 +8,84 @@
       color: #1F271B; /* Dark green text color */
       margin: 0;
       padding: 0;
-    }
-
-    .container {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      align-items: flex-start; /* Adjusted this line to align items to the left */
+      justify-content: flex-start; /* Align items at the top */
       height: 100vh;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Arial', sans-serif; /* Font style */
     }
 
-    .title {
-      font-size: 30px;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 100px;
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hidden {
+      display: none;
     }
 
     .price-list {
       padding: 20px;
       font-size: 20px;
       text-align: left;
-      margin-top: 50px;
+      margin-top: 50px; /* Add top margin to move below the title */
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 100px; /* Adjust the margin to position in the middle */
+    }
+
+    .show {
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin-left: 30px;
+    }
+
+    ul li:before {
+      content: "•";
+      margin-right: 10px;
     }
   </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var video = document.querySelector('video');
+      var priceList = document.querySelector('.price-list');
+
+      video.addEventListener('ended', function() {
+        video.classList.add('hidden');
+        priceList.classList.add('show');
+      });
+
+      // Add event listener to skip the video
+      document.addEventListener('click', function() {
+        if (!video.classList.contains('hidden')) {
+          video.pause();
+          video.classList.add('hidden');
+          priceList.classList.add('show');
+        }
+      });
+    });
+  </script>
 </head>
 <body>
   <!-- Video Intro -->
@@ -44,36 +97,13 @@
   </div>
 
   <!-- Price List -->
-  <div class="container">
+  <div class="price-list hidden">
     <h1 class="title">Listino Prezzi</h1>
-    <div class="price-list">
-      <ul>
-        <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
-        <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
-        <!-- Add more items as needed -->
-      </ul>
-    </div>
+    <ul>
+      <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
+      <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
+      <!-- Add more items as needed -->
+    </ul>
   </div>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      var video = document.querySelector('video');
-      var container = document.querySelector('.container');
-
-      video.addEventListener('ended', function() {
-        video.classList.add('hidden');
-        container.classList.add('show');
-      });
-
-      // Add event listener to skip the video
-      document.addEventListener('click', function() {
-        if (!video.classList.contains('hidden')) {
-          video.pause();
-          video.classList.add('hidden');
-          container.classList.add('show');
-        }
-      });
-    });
-  </script>
 </body>
 </html>
