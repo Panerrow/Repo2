@@ -16,6 +16,21 @@
       font-family: 'Arial', sans-serif; /* Font style */
     }
 
+    .logo-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .logo {
+      max-width: 200px; /* Adjust the max width as needed */
+    }
+
     .video-container {
       position: fixed;
       top: 0;
@@ -86,6 +101,11 @@
   </script>
 </head>
 <body>
+  <!-- Logo -->
+  <div class="logo-container">
+    <img class="logo" src="OBG LOGO.jpg" alt="Logo">
+  </div>
+
   <!-- Video Intro -->
   <div class="video-container">
     <video autoplay muted playsinline>
@@ -99,9 +119,4 @@
     <h1 class="title">Listino Prezzi</h1>
     <ul>
       <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
-      <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
-      <!-- Add more items as needed -->
-    </ul>
-  </div>
-</body>
-</html>
+      <li>Olio Mosto di Oliva taggiasca: 13
