@@ -10,7 +10,7 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       justify-content: flex-start;
       height: 100vh;
       font-family: 'Arial', sans-serif; /* Font style */
@@ -59,8 +59,10 @@
     }
 
     .text-container {
+      margin-top: 50px; /* Adjust as needed */
       text-align: left;
       margin-left: 30px;
+      display: none; /* Hide the bullet points initially */
     }
 
     ul {
@@ -78,10 +80,12 @@
     window.addEventListener('DOMContentLoaded', function() {
       var video = document.querySelector('video');
       var priceList = document.querySelector('.price-list');
+      var bulletPoints = document.querySelector('.text-container');
 
       video.addEventListener('ended', function() {
         video.classList.add('hidden');
         priceList.classList.add('show');
+        bulletPoints.style.display = 'block'; // Show the bullet points
         document.body.style.backgroundColor = "#F7F4E9"; // Set background color after video ends
       });
 
@@ -91,6 +95,7 @@
           video.pause();
           video.classList.add('hidden');
           priceList.classList.add('show');
+          bulletPoints.style.display = 'block'; // Show the bullet points
           document.body.style.backgroundColor = "#F7F4E9"; // Set background color if video is skipped
         }
       });
