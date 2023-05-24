@@ -4,8 +4,8 @@
   <title>Olio by Giulio - Listino Prezzi</title>
   <style>
     body {
-      background-color: #F7F4E9;
-      color: #1F271B;
+      background: linear-gradient(135deg, #BF996B, #556B2F); /* Olive-inspired gradient background */
+      color: #F7F4E9; /* Light text color */
       margin: 0;
       padding: 0;
       display: flex;
@@ -13,8 +13,7 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Arial', sans-serif;
-      background-image: linear-gradient(to right, #4B783B, #2B4E22);
+      font-family: 'Arial', sans-serif; /* Font style */
     }
 
     .video-container {
@@ -64,12 +63,6 @@
       content: "•";
       margin-right: 10px;
     }
-
-    .logo {
-      max-width: 100%; /* Adjust the maximum width as needed */
-      max-height: 100%; /* Adjust the maximum height as needed */
-      margin-top: 50px;
-    }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
@@ -81,6 +74,7 @@
         priceList.classList.add('show');
       });
 
+      // Add event listener to skip the video
       document.addEventListener('click', function() {
         if (!video.classList.contains('hidden')) {
           video.pause();
@@ -92,6 +86,7 @@
   </script>
 </head>
 <body>
+  <!-- Video Intro -->
   <div class="video-container">
     <video autoplay muted playsinline>
       <source src="Olives2.mp4" type="video/mp4">
@@ -99,13 +94,13 @@
     </video>
   </div>
 
-  <img class="logo" src="OBG_LOGO.jpg" alt="Logo">
-
+  <!-- Price List -->
   <div class="price-list hidden">
     <h1 class="title">Listino Prezzi</h1>
     <ul>
       <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
       <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
+      <!-- Add more items as needed -->
     </ul>
   </div>
 </body>
