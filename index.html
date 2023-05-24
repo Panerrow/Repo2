@@ -10,10 +10,20 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Adjusted this line to align items to the left */
-      justify-content: flex-start; /* Align items at the top */
+      align-items: center;
+      justify-content: center;
       height: 100vh;
       font-family: 'Arial', sans-serif; /* Font style */
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .logo img {
+      max-width: 100%;
+      height: auto;
     }
 
     .video-container {
@@ -39,15 +49,13 @@
     .price-list {
       padding: 20px;
       font-size: 20px;
-      text-align: left;
-      margin-top: 50px; /* Add top margin to move below the title */
+      text-align: center;
     }
 
     .title {
       font-size: 30px;
       font-weight: bold;
-      text-align: center;
-      margin-top: 100px; /* Adjust the margin to position in the middle */
+      margin-bottom: 20px;
     }
 
     .show {
@@ -88,6 +96,11 @@
   </script>
 </head>
 <body>
+  <!-- Logo -->
+  <div class="logo">
+    <img src="OBG LOGO.jpg" alt="Logo">
+  </div>
+
   <!-- Video Intro -->
   <div class="video-container">
     <video autoplay muted playsinline>
