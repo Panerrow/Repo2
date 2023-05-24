@@ -16,16 +16,6 @@
       font-family: 'Arial', sans-serif; /* Font style */
     }
 
-    .logo {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .logo img {
-      max-width: 100%;
-      height: auto;
-    }
-
     .video-container {
       position: fixed;
       top: 0;
@@ -73,15 +63,25 @@
       content: "•";
       margin-right: 10px;
     }
+    
+    .logo {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+    }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
       var video = document.querySelector('video');
       var priceList = document.querySelector('.price-list');
+      var logo = document.querySelector('.logo');
 
       video.addEventListener('ended', function() {
         video.classList.add('hidden');
         priceList.classList.add('show');
+        logo.classList.remove('hidden');
       });
 
       // Add event listener to skip the video
@@ -90,6 +90,7 @@
           video.pause();
           video.classList.add('hidden');
           priceList.classList.add('show');
+          logo.classList.remove('hidden');
         }
       });
     });
