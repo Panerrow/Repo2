@@ -4,8 +4,8 @@
   <title>Olio by Giulio - Listino Prezzi</title>
   <style>
     body {
-      background: linear-gradient(to right, #BF996B, #556B2F); /* Olive-inspired gradient background starting from left */
-      color: #F7F4E9; /* Light text color */
+      background-color: #F7F4E9; /* Light beige background */
+      color: #1F271B; /* Dark green text color */
       margin: 0;
       padding: 0;
       display: flex;
@@ -14,21 +14,6 @@
       justify-content: center;
       height: 100vh;
       font-family: 'Arial', sans-serif; /* Font style */
-    }
-
-    .logo-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    .logo {
-      max-width: 200px; /* Adjust the max width as needed */
     }
 
     .video-container {
@@ -78,11 +63,21 @@
       content: "•";
       margin-right: 10px;
     }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      cursor: pointer;
+    }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
       var video = document.querySelector('video');
       var priceList = document.querySelector('.price-list');
+      var playButton = document.querySelector('.play-button');
 
       video.addEventListener('ended', function() {
         video.classList.add('hidden');
@@ -90,28 +85,22 @@
       });
 
       // Add event listener to skip the video
-      document.addEventListener('click', function() {
-        if (!video.classList.contains('hidden')) {
-          video.pause();
-          video.classList.add('hidden');
-          priceList.classList.add('show');
-        }
+      playButton.addEventListener('click', function() {
+        video.play();
+        video.classList.add('hidden');
+        priceList.classList.add('show');
       });
     });
   </script>
 </head>
 <body>
-  <!-- Logo -->
-  <div class="logo-container">
-    <img class="logo" src="OBG LOGO.jpg" alt="Logo">
-  </div>
-
   <!-- Video Intro -->
   <div class="video-container">
     <video autoplay muted playsinline>
       <source src="Olives2.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <div class="play-button">Play</div>
   </div>
 
   <!-- Price List -->
@@ -119,4 +108,9 @@
     <h1 class="title">Listino Prezzi</h1>
     <ul>
       <li>Olio Extravergine di Oliva (Colombaia, Taggiasca, Mortina): 12€/L</li>
-      <li>Olio Mosto di Oliva taggiasca: 13
+      <li>Olio Mosto di Oliva taggiasca: 13€/L</li>
+      <!-- Add more items as needed -->
+    </ul>
+  </div>
+</body>
+</html>
